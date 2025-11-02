@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Визначення знаку числа</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      // Власний приклад: Визначення знаку числа
+
+      document.write(
+        "<p style='text-align:center'>Приклад визначення знаку числа</p>"
+      );
+
+      // 1. Отримуємо дані від користувача
+      let numberInput = prompt("Будь ласка, введіть число:", "0");
+
+      // 2. Перетворюємо отриманий рядок на число
+      let number = parseFloat(numberInput);
+
+      // 3. Перевіряємо, чи є 'number' взагалі числом (на випадок "привіт")
+      if (isNaN(number)) {
+        document.write(
+          "<strong style='color:red;'>Ви ввели не число.</strong>"
+        );
+      } else {
+        // Якщо це коректне число, виконуємо логіку
+        document.write("Задане число: <strong>" + number + "</strong><br>");
+
+        // --- 1. Використання if-else if-else ---
+        if (number > 0) {
+          document.write("Це <strong>додатне</strong> число.");
+        } else if (number < 0) {
+          document.write("Це <strong>від'ємне</strong> число.");
+        } else {
+          document.write("Це <strong>нуль</strong>.");
+        }
+
+        // --- 2. Використання вкладеної тернарної операції ---
+        document.write("<br><br>"); // Просто для відступу
+
+        let result = number > 0 ? "Додатне" : number < 0 ? "Від'ємне" : "Нуль";
+
+        document.write(
+          "Результат через тернарну операцію: <strong>" + result + "</strong>"
+        );
+      }
+    </script>
+  </body>
+</html>

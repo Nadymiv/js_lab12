@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Гра "Вгадай пароль" (while)</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+
+      // 1. Встановлюємо секретний пароль
+      const secretPassword = "javascript";
+
+      // 2. Змінні для гри
+      let isPlaying = true; // Прапорець для циклу while
+      let input; // Змінна для спроби користувача
+      let attemptCount = 0; // Лічильник спроб
+
+      // 3. Питаємо, чи хоче користувач грати
+      let answer = confirm(
+        "Зіграємо у гру? \nСпробуйте вгадати секретний пароль!"
+      );
+
+      if (answer) {
+        alert("Чудово! Пароль - це назва популярної технології. Успіхів!");
+
+        // 4. Починаємо цикл while, який триває, поки 'isPlaying' = true
+        while (isPlaying) {
+          input = prompt("Введіть вашу спробу:");
+          attemptCount++; // Збільшуємо лічильник
+
+          // 5. Перевіряємо, чи користувач натиснув "Cancel"
+          if (input === null) {
+            alert("Ви здалися! Гра завершена.");
+            isPlaying = false; // Зупиняємо цикл
+          }
+          // 6. Перевіряємо, чи пароль правильний
+          else if (input === secretPassword) {
+            alert(
+              "Вітаємо! Ви вгадали пароль '" +
+                secretPassword +
+                "'!\n\nКількість спроб: " +
+                attemptCount
+            );
+            isPlaying = false; // Зупиняємо цикл
+          }
+          // 7. Якщо пароль неправильний
+          else {
+            alert("Неправильний пароль! Спробуйте ще раз.");
+          }
+        }
+      } else {
+        alert("Дуже шкода.\nМожливо, наступного разу?");
+      }
+
+      document.write("<h2>Дякуємо за гру!</h2>");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Визначення мови (if-else-if)</title>
+    <style>
+      /* Додав трохи стилів, щоб вивід був чистішим */
+      body {
+        font-family: sans-serif;
+        text-align: center;
+        padding-top: 50px;
+        font-size: 1.2em;
+      }
+      p {
+        font-weight: bold;
+        color: #333;
+      }
+      .result {
+        font-size: 2em;
+        color: #005a9c;
+      }
+      .error {
+        font-size: 2em;
+        color: #d93025;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      "use strict";
+
+      // 1. Отримуємо дані від користувача
+      // .toLowerCase() перетворює "UA" або "Ua" на "ua" для коректної перевірки
+      const lang = prompt(
+        "Введіть код мови (ua, en, pl, de):",
+        "ua"
+      ).toLowerCase();
+
+      let resultMessage = ""; // Сюди запишемо результат
+      let className = "result"; // Клас для стилізації
+
+      document.write("<p>Результат вибору мови:</p>");
+
+      // 2. Використовуємо ланцюжок if-else-if
+      if (lang === "ua") {
+        resultMessage = "Українська";
+      } else if (lang === "en") {
+        resultMessage = "Англійська";
+      } else if (lang === "pl") {
+        resultMessage = "Польська";
+      } else if (lang === "de") {
+        resultMessage = "Німецька";
+      } else {
+        // 3. Обробляємо випадок, коли жодна умова не виконалась
+        resultMessage = "Мову невизначено";
+        className = "error"; // Міняємо клас на помилку
+      }
+
+      // 4. Виводимо фінальний результат на сторінку
+      document.write('<p class="' + className + '">' + resultMessage + "</p>");
+    </script>
+  </body>
+</html>

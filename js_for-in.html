@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Використання оператора FOR...IN</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 20px;
+      }
+      b {
+        color: #005a9c;
+        min-width: 100px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      document.write("<h3>Перелік властивостей об'єкта 'student':</h3>");
+
+      // 1. Створюємо власний, простий об'єкт
+      const student = {
+        firstName: "Іван",
+        lastName: "Петренко",
+        faculty: "Факультет інформатики",
+        course: 3,
+        hasScholarship: true,
+      };
+
+      // 2. Використовуємо 'for...in' для перебору ключів (властивостей) об'єкта
+      for (let propertyKey in student) {
+        // propertyKey - це ключ (напр., "firstName")
+        // student[propertyKey] - це значення (напр., "Іван")
+
+        // 3. Виводимо ключ і його значення на сторінку
+        document.write(
+          "<b>" + propertyKey + "</b>" + ": " + student[propertyKey] + "<br>"
+        );
+      }
+    </script>
+  </body>
+</html>

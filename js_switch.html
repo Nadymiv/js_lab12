@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Використання оператора SWITCH (Дні тижня)</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        text-align: center;
+        margin-top: 50px;
+        font-size: 1.2em;
+      }
+      .day {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #005a9c;
+      }
+      .error {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #d93025;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      "use strict";
+
+      // 1. Отримуємо номер дня від користувача
+      let dayNumber = parseInt(prompt("Введіть номер дня тижня (1-7):"));
+
+      let dayName; // Змінна для збереження назви дня
+      let className = "day"; // Клас для стилізації
+
+      // 2. Використовуємо switch для визначення назви
+      switch (dayNumber) {
+        case 1:
+          dayName = "Понеділок";
+          break;
+        case 2:
+          dayName = "Вівторок";
+          break;
+        case 3:
+          dayName = "Середа";
+          break;
+        case 4:
+          dayName = "Четвер";
+          break;
+        case 5:
+          dayName = "П'ятниця";
+          break;
+        case 6:
+          dayName = "Субота";
+          break;
+        case 7:
+          dayName = "Неділя";
+          break;
+        default:
+          dayName = "Некоректний номер дня!";
+          className = "error"; // Змінюємо стиль для помилки
+      }
+
+      // 3. Виводимо результат
+      document.write("Ви ввели номер: " + dayNumber + "<br>");
+      document.write('<p class="' + className + '">Це: ' + dayName + "</p>");
+    </script>
+  </body>
+</html>

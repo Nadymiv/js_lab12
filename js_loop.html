@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Використання операторів циклу (Факторіал)</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 20px;
+      }
+      p {
+        margin-top: 20px;
+      }
+      b {
+        color: #005a9c;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      "use strict";
+
+      // 1. Отримуємо число від користувача
+      // Ми будемо обчислювати факторіал n!
+      let n = parseInt(
+        prompt("Введіть ціле число для обчислення факторіалу (n!):", "5")
+      );
+
+      // Обробка некоректного вводу або від'ємних чисел
+      if (isNaN(n) || n < 0) {
+        document.write(
+          "<p style='color:red;'>Помилка. Будь ласка, введіть додатне ціле число.</p>"
+        );
+      } else {
+        document.write("<h3>Обчислення факторіалу для " + n + "!</h3>");
+
+        // --- Використання оператора циклу FOR ---
+        document.write("<p>Використання оператора циклу	<b>FOR</b></p>");
+        let factorialFor = 1;
+        // Цикл 'for' іде від 1 до n (включно)
+        // Використовуємо i = 2, оскільки множення на 1 не змінює результат (оптимізація)
+        // Обробляємо 0! та 1! окремо (вони = 1)
+        for (let i = 2; i <= n; i++) {
+          factorialFor = factorialFor * i;
+        }
+        document.write("Результат: " + n + "! = " + factorialFor);
+
+        // --- Використання оператора циклу WHILE ---
+        document.write("<p>Використання оператора циклу <b>WHILE</b></p>");
+        let factorialWhile = 1;
+        let i = 2; // Ініціалізуємо лічильник
+        while (i <= n) {
+          factorialWhile = factorialWhile * i;
+          i++; // Збільшуємо лічильник
+        }
+        document.write("Результат: " + n + "! = " + factorialWhile);
+
+        // --- Використання оператора циклу DO WHILE ---
+        document.write("<p>Використання оператора циклу <b>DO WHILE</b></p>");
+        let factorialDo = 1;
+        i = 2; // Знову скидаємо лічильник
+
+        // 'do...while' виконається хоча б раз, що коректно для 0! та 1!
+        // Але якщо n=0, то i=2, тому цикл не має запускатися
+        // Тому ми додамо перевірку
+        if (n > 1) {
+          do {
+            factorialDo = factorialDo * i;
+            i++;
+          } while (i <= n);
+        }
+        // Якщо n = 0 або n = 1, factorialDo залишиться 1, що є вірним.
+        document.write("Результат: " + n + "! = " + factorialDo);
+      }
+    </script>
+  </body>
+</html>
